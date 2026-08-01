@@ -19,13 +19,14 @@ export async function registerUser(req, res) {
             message : "All fields are required"
         });
     }
-    if(!validator.isEmail()){
+    if(!validator.isEmail(email)){
         return res.status(400).json({
             success: false,
             message: "Invalid email"
         });
+    }
     
-    if(!password.length < 8){
+    if(password.length < 8){
         return res.status(400).json({
             success: false,
             message: "Password must be atleast of 8 characters"
@@ -56,7 +57,6 @@ export async function registerUser(req, res) {
         })
     }
     }
-}
 
 // to login a user
 export async function loginUser(req, res) {
@@ -106,7 +106,7 @@ export async function loginUser(req, res) {
 }
 
 // to get login user details
-export async function getCurrentUser(params) {
+export async function getCurrentUser(req, res) {
     try {
         const user = await User.findById(req.user.id).select("name email");
         if(!user){
@@ -126,7 +126,7 @@ export async function getCurrentUser(params) {
             message: "Server Error"
         })
     }
-
+}
     // update a user profile
 
     export async function updateProfile(req, res) {
@@ -164,7 +164,6 @@ export async function getCurrentUser(params) {
     }
         
     }
-}
 
 // to change user password
 export async function updatePassword(req, res) {
@@ -188,7 +187,7 @@ export async function updatePassword(req, res) {
 
         const match = await bcrypt.compare(currentPassword, user.password);
         if(!match){
-            return res.status({
+            return res.status(401).json({
                 success: false,
                 message: "Current Password is incorrect"
             })
