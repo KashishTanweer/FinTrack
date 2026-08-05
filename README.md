@@ -4,7 +4,6 @@
   <b>A modern full-stack personal finance tracker built to manage income, expenses, savings, and financial insights.</b>
 </p>
 
----
 
 ## 📌 About The Project
 
