@@ -1,6 +1,6 @@
 # 💰 FinTrack - Personal Finance Management System
 
-<p align="center">
+<p style="text-align: left;">
   <b>A modern full-stack personal finance tracker built to manage income, expenses, savings, and financial insights.</b>
 </p>
 
