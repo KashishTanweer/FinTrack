@@ -415,7 +415,7 @@ const Layout = ({onLogout, user}) => {
                             <span>Transactions are stacked by date (newest first)</span>
                         </div>
                         <div className={styles.transactions.listContainer}>
-                            {displayedTransactions.map((transactions) => {
+                            {displayedTransactions.map((transaction) => {
                                 const {id, type, category, description, date, amount} = transaction;
                                 return (
                                     <div key={id} className={styles.transactions.transactionItem}>

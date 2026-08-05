@@ -155,9 +155,9 @@ export async function getExpenseOverview(req, res) {
         
         // total income, avgincome, noOfTrans, recentTransaction
         
-        const totalExpense = expense.reduce((acc, cur) => acc + cur.amount, 0);
-        const averageExpense = expense.length > 0 ? totalExpense / expense.length : 0;
-        const numberOfTransactions = expense.length;
+        const totalExpense = expenses.reduce((acc, cur) => acc + cur.amount, 0);
+        const averageExpense = expenses.length > 0 ? totalExpense / expense.length : 0;
+        const numberOfTransactions = expenses.length;
 
         const recentTransactions = expenses.slice(0,5);
 
